@@ -1,30 +1,16 @@
-function validateAge() {
-    // Get the user's date of birth
-    const dobInput = document.getElementById('dob');
-    const dobValue = dobInput.value;
-  
-    // Convert the date of birth to a Date object
-    const dobDate = new Date(dobValue);
-  
-    // Calculate the user's age in years
-    const today = new Date();
-    const age = today.getFullYear() - dobDate.getFullYear();
-  
-    // Check if the user is between 18 and 55 years old
-    //if (age < 18 || age > 55) {
-      //alert('Your age must be between 18 and 55 to register.');
-      //dobInput.value = ''; // Reset the date of birth input field
-      //return false;
-      if (age < 18 && age > 55) {
-        return true
-      } else {
-        alert('Invalid date of birth. Age must be between 18 and 55.');
-                    return false;
-      }
-    // else {
-    //  return true;
-   // }
-  }
+function minDate() {
+  const today = new Date();
+  return new Date(today.getFullYear() - 55, today.getMonth(), today.getDate()).toISOString().split('T')[0];
+}
+
+function maxDate() {
+  const today = new Date();
+  return new Date(today.getFullYear() - 18, today.getMonth(), today.getDate()).toISOString().split('T')[0];
+}
+
+const dobInput = document.getElementById('dob');
+dobInput.setAttribute('min', minDate());
+dobInput.setAttribute('max', maxDate());
   
   let userForm = document.getElementById("user-form");
   
