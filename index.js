@@ -15,7 +15,7 @@ function validateAge() {
       //alert('Your age must be between 18 and 55 to register.');
       //dobInput.value = ''; // Reset the date of birth input field
       //return false;
-      if (age > 18 && age < 55) {
+      if (age < 18 && age > 55) {
         return true
       } else {
         alert('Invalid date of birth. Age must be between 18 and 55.');
